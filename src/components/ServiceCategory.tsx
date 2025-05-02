@@ -12,6 +12,7 @@ interface ServiceCategoryProps {
   title: string
   description: string
   services: Service[]
+  paymentInfo: string
   onRequestService: (serviceId: string) => void
 }
 
@@ -19,6 +20,7 @@ export function ServiceCategory({
   title, 
   description, 
   services, 
+  paymentInfo,
   onRequestService 
 }: ServiceCategoryProps) {
   return (
@@ -41,6 +43,12 @@ export function ServiceCategory({
               onRequestService={() => onRequestService(service.id)}
             />
           ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <p className="text-sm text-muted-foreground font-medium">
+            {paymentInfo}
+          </p>
         </div>
       </div>
     </section>

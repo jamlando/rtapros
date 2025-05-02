@@ -13,6 +13,7 @@ export interface ServiceCategory {
   title: string
   description: string
   services: Service[]
+  paymentInfo: string
 }
 
 export const serviceCategories: ServiceCategory[] = [
@@ -20,6 +21,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: 'luxury-rentals',
     title: 'Luxury Rentals & Services',
     description: 'Premium vehicle rental and luxury services',
+    paymentInfo: 'Checks payable to RTA VALET',
     services: [
       {
         id: 'limousine',
@@ -55,6 +57,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: 'mechanics',
     title: 'Mobile Mechanics & Detailing',
     description: 'Professional automotive maintenance and detailing',
+    paymentInfo: 'Checks payable to RTA MOBILE',
     services: [
       {
         id: 'mobile-mechanic',
@@ -83,6 +86,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: 'shipping',
     title: 'Shipping & Moving',
     description: 'Vehicle transportation and rental solutions',
+    paymentInfo: 'Checks payable to RTA VALET',
     services: [
       {
         id: 'vehicle-transport',
@@ -104,6 +108,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: 'floors',
     title: 'Floors & Coatings',
     description: 'Professional flooring and surface treatments',
+    paymentInfo: 'Checks payable to Real Time Auto Pros',
     services: [
       {
         id: 'epoxy-floors',
@@ -132,6 +137,7 @@ export const serviceCategories: ServiceCategory[] = [
     id: 'custom-garage',
     title: 'Custom Garage Services',
     description: 'Specialized automotive customization and restoration',
+    paymentInfo: 'Checks payable to Real Time Auto Pros',
     services: [
       {
         id: 'custom-shop',

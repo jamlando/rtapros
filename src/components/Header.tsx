@@ -7,17 +7,21 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from './ui/dropdown-menu'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Menu, X } from 'lucide-react'
 import { serviceCategories } from '../data/services'
 import carIcon from '../assets/car-icon.svg'
 
 export function Header() {
   const location = useLocation()
-  const [open, setOpen] = React.useState(false)
+  const [desktopOpen, setDesktopOpen] = React.useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+  const [mobileServicesOpen, setMobileServicesOpen] = React.useState(false)
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
-    setOpen(false)
+    setDesktopOpen(false)
+    setMobileMenuOpen(false)
+    setMobileServicesOpen(false)
     
     // Add a small delay to ensure the dropdown is closed before scrolling
     setTimeout(() => {
@@ -37,14 +41,15 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
-        <div className="mr-4 flex">
+      <div className="container flex h-16 items-center justify-between">
+        <div className="flex items-center">
           <Link to="/" className="mr-6 flex items-center space-x-2">
             <img src={carIcon} alt="Car" className="w-6 h-6" />
             <span className="font-bold text-xl">RTA</span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
-            <DropdownMenu open={open} onOpenChange={setOpen}>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            <DropdownMenu open={desktopOpen} onOpenChange={setDesktopOpen}>
               <DropdownMenuTrigger className="flex items-center space-x-1 transition-colors hover:text-foreground/80 text-foreground/60">
                 <span>Services</span>
                 <ChevronDown className="h-4 w-4" />
@@ -79,14 +84,75 @@ export function Header() {
             </a>
           </nav>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-2">
-            <Button size="sm" asChild>
+
+        {/* Desktop Request Service Button */}
+        <div className="hidden md:flex items-center">
+          <Button size="sm" asChild>
+            <Link to="/request-service">Request Service</Link>
+          </Button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? (
+            <X className="h-6 w-6" />
+          ) : (
+            <Menu className="h-6 w-6" />
+          )}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t">
+          <nav className="container py-4 space-y-4">
+            <div className="space-y-2">
+              <button
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                className="flex w-full items-center justify-between py-2 text-sm font-medium"
+              >
+                <span>Services</span>
+                <ChevronDown className={`h-4 w-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileServicesOpen && (
+                <div className="pl-4 space-y-2">
+                  {serviceCategories.map((category) => (
+                    <a
+                      key={category.id}
+                      href={`#${category.id}`}
+                      onClick={(e) => handleAnchorClick(e, category.id)}
+                      className="block py-2 text-sm font-medium"
+                    >
+                      {category.title}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+            <a 
+              href="#about" 
+              onClick={(e) => handleAnchorClick(e, 'about')}
+              className="block py-2 text-sm font-medium"
+            >
+              About
+            </a>
+            <a 
+              href="#contact" 
+              onClick={(e) => handleAnchorClick(e, 'contact')}
+              className="block py-2 text-sm font-medium"
+            >
+              Contact
+            </a>
+            <Button size="sm" className="w-full" asChild>
               <Link to="/request-service">Request Service</Link>
             </Button>
           </nav>
         </div>
-      </div>
+      )}
     </header>
   )
 } 

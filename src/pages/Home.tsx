@@ -91,6 +91,11 @@ export function Home() {
                       )
                     })}
                   </div>
+                  <div className="mt-4 pt-4 border-t">
+                    <p className="text-sm text-muted-foreground font-medium">
+                      {category.paymentInfo}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
