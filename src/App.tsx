@@ -2,11 +2,11 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { MainLayout } from './components/MainLayout'
 import { Home } from './pages/Home'
+import { RequestService } from './pages/RequestService'
 import DashboardLayout from './components/layout/DashboardLayout'
 import Dashboard from './pages/admin/Dashboard'
 import ServiceRequests from './pages/admin/ServiceRequests'
 import ServiceRequestDetail from './pages/admin/ServiceRequestDetail'
-import { ServiceRequestForm } from './components/ServiceRequestForm'
 import { MechanicTracking } from './components/MechanicTracking'
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/request-service" element={<ServiceRequestForm />} />
+          <Route path="/request-service" element={<RequestService />} />
           <Route path="/mechanics" element={<MechanicTracking />} />
         </Route>
         <Route path="/admin" element={<DashboardLayout><Dashboard /></DashboardLayout>} />

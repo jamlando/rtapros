@@ -13,7 +13,8 @@ import {
   Cog,
   Sofa,
   Music,
-  RotateCw
+  RotateCw,
+  Anchor
 } from 'lucide-react'
 
 const iconMap: { [key: string]: React.ElementType } = {
@@ -27,7 +28,8 @@ const iconMap: { [key: string]: React.ElementType } = {
   Cog,
   Sofa,
   Music,
-  RotateCw
+  RotateCw,
+  Anchor
 }
 
 export function Home() {
@@ -46,9 +48,6 @@ export function Home() {
             <div className="space-x-4">
               <Button asChild>
                 <Link to="/request-service">Request Service</Link>
-              </Button>
-              <Button variant="outline" asChild>
-                <Link to="/mechanics">Track Mechanic</Link>
               </Button>
             </div>
           </div>

@@ -31,15 +31,29 @@ export const serviceCategories: ServiceCategory[] = [
       {
         id: 'valet',
         title: 'Valet Parking',
-        description: 'Professional valet parking services',
+        description: 'Professional valet parking services, including parking lot management and efficient vehicle handling.',
         icon: 'ParkingCircle',
+        categoryId: 'luxury-rentals'
+      },
+      {
+        id: 'classic-vehicle-rentals',
+        title: 'Classic Vehicle Rentals',
+        description: 'Rent classic and vintage vehicles for special occasions or events',
+        icon: 'Car',
+        categoryId: 'luxury-rentals'
+      },
+      {
+        id: 'chauffeur-services',
+        title: 'Chauffeur Services / Experienced Exotic Car Drivers',
+        description: 'Professional chauffeurs and experienced drivers for luxury and exotic vehicles',
+        icon: 'Car',
         categoryId: 'luxury-rentals'
       }
     ]
   },
   {
     id: 'mechanics',
-    title: 'Mechanics & Detailing',
+    title: 'Mobile Mechanics & Detailing',
     description: 'Professional automotive maintenance and detailing',
     services: [
       {
@@ -54,6 +68,13 @@ export const serviceCategories: ServiceCategory[] = [
         title: 'Mobile Detailing',
         description: 'Professional vehicle cleaning and detailing',
         icon: 'SprayCan',
+        categoryId: 'mechanics'
+      },
+      {
+        id: 'marine-services',
+        title: 'Marine Services',
+        description: 'Professional boat maintenance and repair services',
+        icon: 'Anchor',
         categoryId: 'mechanics'
       }
     ]
@@ -71,10 +92,10 @@ export const serviceCategories: ServiceCategory[] = [
         categoryId: 'shipping'
       },
       {
-        id: 'staged-rental',
-        title: 'Staged Vehicle Rental',
-        description: 'Temporary vehicle rental during transport',
-        icon: 'Car',
+        id: 'movers',
+        title: 'Movers (Load and Unload)',
+        description: 'Professional moving services for loading and unloading vehicles',
+        icon: 'Truck',
         categoryId: 'shipping'
       }
     ]

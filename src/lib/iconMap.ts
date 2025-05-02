@@ -9,7 +9,8 @@ import {
   Cog,
   Sofa,
   Music,
-  RotateCw
+  RotateCw,
+  Anchor
 } from 'lucide-react'
 
 export const iconMap: { [key: string]: React.ElementType } = {
@@ -23,5 +24,6 @@ export const iconMap: { [key: string]: React.ElementType } = {
   Cog,
   Sofa,
   Music,
-  RotateCw
+  RotateCw,
+  Anchor
 } 

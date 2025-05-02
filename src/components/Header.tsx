@@ -63,9 +63,6 @@ export function Header() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <Link to="/mechanics" className="transition-colors hover:text-foreground/80 text-foreground/60">
-              Mechanics
-            </Link>
             <a 
               href="#about" 
               onClick={(e) => handleAnchorClick(e, 'about')}
@@ -84,9 +81,6 @@ export function Header() {
         </div>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
-            <Button variant="outline" size="sm" asChild>
-              <Link to="/admin">Admin</Link>
-            </Button>
             <Button size="sm" asChild>
               <Link to="/request-service">Request Service</Link>
             </Button>
